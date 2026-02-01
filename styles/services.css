@@ -96,11 +96,29 @@
 }
 
 @media screen and (width >= 768px) {
+    #services h2{
+        font-size: 4rem;
+    }
 
+    .service-list{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .box h3{
+        text-align: left;
+    }
 }
 
 @media screen and (width >= 1024px) {
-    #services.content.active{
-    margin: 3rem auto;
+    .service-list {
+        grid-template-columns: repeat(3, 1fr);;
+    }
+
+    .box h3{
+        font-size: 1.8rem;
+    }
+
+    .box p{
+        font-size: 1.2rem;
     }
 }

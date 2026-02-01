@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 });
 
 const navlinks = document.querySelectorAll(".navlink");
-const tab = document.querySelectorAll(".content");
+const tabs = document.querySelectorAll(".content");
 
 navlinks.forEach((link) => {
     link.addEventListener('click',(e) => {
@@ -83,6 +83,60 @@ navlinks.forEach((link) => {
             }else{
                 tab.classList.remove("active");
             }
-        })
+        });
+
+        //services
+        if (tabname === "services"){
+            const serviceList = [
+            {
+                id:1,
+                icon:"ph-code",
+                text:"Website Development",
+                para:"I build responsive and modern websites using the latest technologies like HTML, CSS, JavaScript, React, and...",
+            },
+            {
+                id:2,
+                icon:"",
+                text:"UX/UI Design",
+                para:"Custom mobile apps for Android and iOS using React Native and Expo, designed to provide excellent UI/UX...",
+            },
+            {
+                id:3,
+                icon:"",
+                text:"SEO Optimization",
+                para:"I improve website visibility on search engines with optimized structure, keywords, and performance best...",
+            },
+            {
+                id:4,
+                icon:"",
+                text:"Graphic Design",
+                para:"Offering expert advice and solutions for tech projects, helping individuals and startups with project planning and...",
+            },
+            {
+                id:5,
+                icon:"",
+                text:"Mentorship & Training",
+                para:"Personal mentorship for beginners to advanced learners in web development, including live coding sessions and...",
+            },
+            {
+                id:6,
+                icon:"",
+                text:"Photography",
+                para:"End-to-end delivery of freelance projects – from planning to deployment – with quality assurance and post-...",
+            },
+        ];
+
+        // const services = document.getElementsByClassName("service-list");
+
+        // const innerContent = serviceList.map(() => {
+        //     return `
+        //     <div>Inner Box</div>
+        //     `;  
+        // });
+
+        Array.from(services).forEach((ele) => {
+            ele.innerHTML = innerContent;
+        });
+        }
     });
 });

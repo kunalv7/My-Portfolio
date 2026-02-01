@@ -8,27 +8,29 @@
     <link rel="shortcut icon" href="images/web-logo.jpeg" type="image/x-icon">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/home.css">
-    <link rel="stylesheet" href="styles/about.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <link rel="stylesheet" href="styles/services.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
 </head>
 
 <body>
     <div class="main-container">
         <header>
             <div class="brand-info">
-                <img src="images/web-logo.jpeg" alt="Logo-image">
+                <img src="images/web-logo.jpeg" alt="Logo-image" title="Logo" loading="lazy">
                 <h2>Portfolio</h2>
             </div>
 
             <div class="menu-area">
                 <input type="checkbox" id="menu-toggle" hidden />
                 <label for="menu-toggle" class="menu-icon">
-                    <i class="bx bx-menu-close"></i>
+                    <i class="ph ph-list"></i>
                 </label>
                 <label for="menu-toggle" id="overlay"></label>
 
                 <nav>
                     <a href="#" style="--i:1" data-tab="home" class="navlink active">Home</a>
+                    <a href="#" style="--i:1" data-tab="services" class="navlink">Services</a>
                     <a href="#" style="--i:2" data-tab="about" class="navlink">About</a>
                     <a href="#" style="--i:3" data-tab="projects" class="navlink">Projects</a>
                     <a href="#" style="--i:4" data-tab="contect" class="navlink">Contect</a>
@@ -51,13 +53,13 @@
                     tutorials, real-world projects, and developer tips to help you master web development.
                 </p>
                 <div class="bottom">
-                    <button>Download CV</button>
+                    <button class="btn">Download CV</button>
 
                     <div class="social-icons">
-                        <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
-                        <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
-                        <a href="#"><i class="fa-brands fa-square-github"></i></a>
-                        <a href="#"><i class="fa-brands fa-square-linkedin"></i></a>
+                        <a href="#"><i class="ph ph-instagram-logo"></i></a>
+                        <a href="#"><i class="ph ph-facebook-logo"></i></a>
+                        <a href="#"><i class="ph ph-github-logo"></i></a>
+                        <a href="#"><i class="ph ph-linkedin-logo"></i></a>
                     </div>
                 </div>
             </div>
@@ -65,6 +67,39 @@
             <div class="img-container">
                 <img src="images/my_profile.jpg" alt="profile picture" title="Profile Picture" loading="lazy"
                     width="95%">
+            </div>
+        </section>
+
+        <section id="services" class="content">
+            <h2>My
+                <span>Services</span>
+            </h2>
+            <div class="service-list">
+                <div class="box">
+                    <div class="head-icon">
+                        <i class="ph ph-code"></i>
+                        <span>
+                            <i class="ph ph-arrow-down"></i>
+                        </span>
+                    </div>
+                    <h3>Website development</h3>
+                    <span class="spacer">
+                    </span>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae, quisquam!</p>
+                </div>
+                
+                <div class="box">
+                    <div class="head-icon">
+                        <i class="ph ph-code"></i>
+                        <span>
+                            <i class="ph ph-arrow-down"></i>
+                        </span>
+                    </div>
+                    <h3>Website development</h3>
+                    <span class="spacer">
+                    </span>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae, quisquam!</p>
+                </div>
             </div>
         </section>
 
@@ -78,7 +113,7 @@
     <!-- <h1>1.56.22</h1>
     https://chatgpt.com/c/697b964a-b680-8320-bba2-040b7bed6370 -->
 
-    <script src="script.js" defer></script>
+    <script src="script.js" type="module" defer></script>
     <!-- <script src="https://kit.fontawesome.com/15cadc9b02.js" crossorigin="anonymous"></script> -->
 
 </body>

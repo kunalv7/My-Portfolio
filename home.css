@@ -132,7 +132,7 @@
     box-shadow: 3px 3px 3px var(--green), -3px 3px 3px var(--green), 3px -3px 3px var(--green), -3px -3px 3px var(--green);
 }
 
-.social-icons{
+/* .social-icons{
     display: flex;
     gap: 20px;
     font-size: 2.5rem;
@@ -157,7 +157,7 @@
 .social-icons a:hover{
     color: var(--green);
     scale: 105%;
-}
+} */
 
 
 @media screen and (width >= 768px) {

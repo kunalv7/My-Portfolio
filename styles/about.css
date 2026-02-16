@@ -125,3 +125,65 @@ aside h2 span{
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.company-name{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.company-name span{
+    border: 6px solid var(--green);
+    border-radius: 50%;
+}
+
+.company-name p {
+    font-size: 1rem;
+}
+
+@media screen and (width >= 768px){
+    #about.tab-content.active {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 3rem;
+    }
+
+    .sidebar{
+        grid-column: span 3;
+    }
+
+    .sidebar .tabs {
+        gap: 1.5 rem;
+    }
+
+    .tab-content.active{
+        max-width: 100%;
+        margin: 0;
+        grid-column: span 4;
+    }
+
+    aside h2{
+        font-size: 3rem;
+    }
+
+    aside p{
+        font-size: 1.3rem;
+    }
+
+    .experience-box h3{
+        font-size: 1.5rem;
+    }
+
+    .company-name p{
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (width >=1024px) {
+    #about.tab-content.active{
+        gap: 5rem;
+    }
+
+    .experience-box h3{
+        font-size: 1.8rem;
+    }
+}

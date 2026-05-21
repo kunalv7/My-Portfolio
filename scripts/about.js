@@ -32,7 +32,7 @@ aboutTabs.forEach((tab) => {
             const experienceList = [
                 {
                     id: 1,
-                    date: "2023 - 2024",   // ✅ fixed data → date
+                    date: "2023 - 2024",   
                     position: "Frontend Developer",
                     company: "Mindstay Technology",
                     details: "Build responsive and optimized UIs using React.js and Tailwind CSS. Collaborated with backend teams to integrate APIs and improve user experience.",

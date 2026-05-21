@@ -55,7 +55,7 @@ aboutTabs.forEach((tab) => {
 
             const experienceContent = experienceList.map((ele) => {
                 return `
-                  <div class="experience-box">
+                  <div class="experience-box" key=${ele?.id}>
                         <h4>${ele.date}</h4>
                         <h3>${ele.position}</h3>
                         <div class="company-name">
@@ -70,6 +70,69 @@ aboutTabs.forEach((tab) => {
             if (experiences) {
                 experiences.innerHTML = experienceContent;
             }
-        }
+        } else if (activeTab === "education"){
+            const education = document.querySelector('.education-list');
+
+            const educationList = [{
+                id : 1,
+                date: "2020 - 2023",
+                degree: "Bachelor of Computer Application (BCA)",
+                institution: "CS University, Dehradun",
+                details: "Studies core subject like Data structure, Web development, and  Operating system. Built multiple academic project uisng JavaScript and MERN stack."
+            }];
+
+            const educationContent = educationList.map((ele) => {
+                return `
+                 <div class="experience-box" key=${ele?.id}>
+                        <h4>${ele.date}</h4>
+                        <h3>${ele.degree}</h3>
+                        <div class="company-name"> 
+                            <span></span>
+                            <p>${ele.institution}</p>
+                        </div>
+                        <p>${ele.details}</p>
+                  </div>  
+                `;
+            }).join("");
+
+            if (education) {
+                education.innerHTML = educationContent;
+            } 
+
+        } else if (activeTab === "skills"){
+            const skills = document.querySelector('.skills-list');
+
+            const skillsList = [
+            {
+                id : 1,
+                name: "HTML - Hyper Text Markup language",
+                icon: "assets/skills/html.png",
+            },
+            
+            {
+                id : 2,
+                name: "CSS - Cascading Style Sheet",
+                icon: "assets/skills/css.png"
+            }
+        
+        ];
+
+            const educationContent = educationList.map((ele) => {
+                return `
+                 <div class="experience-box" key=${ele?.id}>
+                        <h4>${ele.date}</h4>
+                        <h3>${ele.degree}</h3>
+                        <div class="company-name"> 
+                            <span></span>
+                            <p>${ele.institution}</p>
+                        </div>
+                        <p>${ele.details}</p>
+                  </div>  
+                `;
+            }).join("");
+
+            if (education) {
+                education.innerHTML = educationContent;
+            }
     });
 });

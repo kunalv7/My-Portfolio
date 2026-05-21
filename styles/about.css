@@ -73,7 +73,7 @@ aside h2 span{
     color: var(--green);
 }
 
-.experience-list{
+.experience-list, .education-list{
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 2rem;
@@ -82,11 +82,13 @@ aside h2 span{
     padding: 1rem;
 }
 
-.experience-list::-webkit-scrollbar{
+.experience-list::-webkit-scrollbar,
+.education-list::-webkit-scrollbar{
     width: 5px;
 }
 
-.experience-list::-webkit-scrollbar-thumb{
+.experience-list::-webkit-scrollbar-thumb,
+.education-list::-webkit-scrollbar-thumb{
     background: var(--green);
     border-radius: 10px;
 }

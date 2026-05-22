@@ -100,9 +100,9 @@ aboutTabs.forEach((tab) => {
             } 
 
         } else if (activeTab === "skills"){
-            const skills = document.querySelector('.skills-list');
+            const skills = document.querySelector('.skill-list');
 
-            const skillsList = [
+            const skillList = [
             {
                 id : 1,
                 name: "HTML - Hyper Text Markup language",
@@ -113,26 +113,74 @@ aboutTabs.forEach((tab) => {
                 id : 2,
                 name: "CSS - Cascading Style Sheet",
                 icon: "assets/skills/css.png"
+            },
+            {
+                id : 2,
+                name: "CSS - Cascading Style Sheet",
+                icon: "assets/skills/css.png"
+            },
+            {
+                id : 2,
+                name: "CSS - Cascading Style Sheet",
+                icon: "assets/skills/css.png"
             }
         
         ];
 
-            const educationContent = educationList.map((ele) => {
+            const skillContent = skillList.map((ele) => {
                 return `
-                 <div class="experience-box" key=${ele?.id}>
-                        <h4>${ele.date}</h4>
-                        <h3>${ele.degree}</h3>
-                        <div class="company-name"> 
-                            <span></span>
-                            <p>${ele.institution}</p>
-                        </div>
-                        <p>${ele.details}</p>
+                 <div class="skill-box" key=${ele?.id}>
+                    <img src=${ele?.icon}
+                    alt=${ele.name}
+                    title=${ele.name}
+                    loading="lazy"/>
                   </div>  
                 `;
             }).join("");
 
-            if (education) {
-                education.innerHTML = educationContent;
+            if (skills) {
+                skills.innerHTML = skillContent;
             }
+        } else if (activeTab === "about-me"){
+
+            const myInfo = document.querySelector(".my-info");
+
+            const infoList = [
+                {
+                    id: 1,
+                    key: "Name",
+                    value: "Kunal Vishwakarma",
+                },
+                {
+                    id: 2,
+                    key: "Email",
+                    value: "kunalvishwakarma3110g@gmail.com",
+                },
+                {
+                    id: 3,
+                    key: "Experience",
+                    value: "2 Years",
+                },
+            ];
+
+            const infoContent = infoList
+                .map((ele) => {
+                    return `
+                    <div class="info-box">
+                        <span>${ele.key} :</span>
+                        <span>${ele.value}</span>
+                    </div>
+                `;
+                })
+                .join("");
+
+            if (myInfo) {
+                myInfo.innerHTML = infoContent;
+            }
+
+        }
     });
 });
+
+
+// 3:19:36 https://www.youtube.com/watch?v=9EM0XLN7cwc&t=11691s

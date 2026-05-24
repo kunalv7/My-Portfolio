@@ -73,13 +73,22 @@ aboutTabs.forEach((tab) => {
         } else if (activeTab === "education"){
             const education = document.querySelector('.education-list');
 
-            const educationList = [{
+            const educationList = [
+            {
                 id : 1,
                 date: "2020 - 2023",
                 degree: "Bachelor of Computer Application (BCA)",
                 institution: "CS University, Dehradun",
                 details: "Studies core subject like Data structure, Web development, and  Operating system. Built multiple academic project uisng JavaScript and MERN stack."
-            }];
+            },
+            {
+                id : 2,
+                date: "2020 - 2023",
+                degree: "Bachelor of Computer Application (BCA)",
+                institution: "CS University, Dehradun",
+                details: "Studies core subject like Data structure, Web development, and  Operating system. Built multiple academic project uisng JavaScript and MERN stack."
+            }
+            ];
 
             const educationContent = educationList.map((ele) => {
                 return `
@@ -115,14 +124,24 @@ aboutTabs.forEach((tab) => {
                 icon: "assets/skills/css.png"
             },
             {
-                id : 2,
+                id : 3,
                 name: "CSS - Cascading Style Sheet",
-                icon: "assets/skills/css.png"
+                icon: "assets/skills/js.png"
             },
             {
-                id : 2,
+                id : 4,
                 name: "CSS - Cascading Style Sheet",
-                icon: "assets/skills/css.png"
+                icon: "assets/skills/react.png"
+            },
+            {
+                id : 5,
+                name: "CSS - Cascading Style Sheet",
+                icon: "assets/skills/node.png"
+            },
+            {
+                id : 6,
+                name: "CSS - Cascading Style Sheet",
+                icon: "assets/skills/mongodb.png"
             }
         
         ];
@@ -131,9 +150,9 @@ aboutTabs.forEach((tab) => {
                 return `
                  <div class="skill-box" key=${ele?.id}>
                     <img src=${ele?.icon}
-                    alt=${ele.name}
-                    title=${ele.name}
+
                     loading="lazy"/>
+                    <span class="skill-box-info">${ele.name}</span>
                   </div>  
                 `;
             }).join("");
@@ -149,7 +168,7 @@ aboutTabs.forEach((tab) => {
                 {
                     id: 1,
                     key: "Name",
-                    value: "Kunal Vishwakarma",
+                    value: "Kunal Pravin Vishwakarma",
                 },
                 {
                     id: 2,

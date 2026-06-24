@@ -105,6 +105,19 @@
     align-self: center;
 }
 
+.disabled-btn{
+    color: var(--disabled);
+    border-color: var(--disabled);
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.disabled-btn:hover{
+    box-shadow: none;
+    background: none;
+    cursor: auto;
+}
+
 
 @media screen and (width >=1024px){
     .projects{

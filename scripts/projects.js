@@ -3,104 +3,94 @@ const projectList = [
         id: 1,
         number: "01",
         title: "FullStack Threads Clone",
-        discription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, qui ipsam! Illum doloremque eaque eos numquam iusto facere! Necessitatibus, odit.",
-        techStack: ["MongoDB", "Express", "react", "Node"],
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, qui ipsam! Illum doloremque eaque eos numquam iusto facere! Necessitatibus, odit.",
+        techStack: ["MongoDB", "Express", "React", "Node"],
         image: "assets/projects/project1.webp",
         liveLink: "#",
         githubLink: "#",
     },
-]  
+    {
+        id: 2,
+        number: "02",
+        title: "E-Commerce Website",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, qui ipsam! Illum doloremque eaque eos numquam iusto facere! Necessitatibus, odit.",
+        techStack: ["MongoDB", "Express", "React", "Node"],
+        image: "assets/projects/project1.webp",
+        liveLink: "#",
+        githubLink: "#",
+    }
+];
 
 const projects = document.querySelector(".projects");
 
 let currentIndex = 0;
 
-const renderproject = (index) => {
+const renderProject = (index) => {
     const projectContent = projectList[index];
 
     const previousDisabled = currentIndex === 0;
-
     const nextDisabled = currentIndex === projectList.length - 1;
 
-    projects.innerHTML = 
-    `
-    <div class="projects">
+    projects.innerHTML = `
         <div class="project-info">
-            <h3>${projectContent?.number}</h3>
-            <h4>${projectContent?.title}</h4>
-            <p>${projectContent?.discription}</p>
+            <h3>${projectContent.number}</h3>
+            <h4>${projectContent.title}</h4>
+            <p>${projectContent.description}</p>
+
             <div class="tech-stack">
-                // <span>mongoDB</span>
-                // <span>mongoDB</span>   
-
-                ${
-                    projectContent?.techStack?.
-                    map((tech , i) => {
-                        return `
-                            <span>${tech}</span>
-                        `;
-                    })
-                }
-
+                ${projectContent.techStack
+                    .map((tech) => `<span>${tech}</span>`)
+                    .join("")}
             </div>
+
             <hr>
+
             <div class="links">
-                <a href="${projectContent?.githubLink}">
-                    <i class="ph ph-arrow-right"></i>
+                <a href="${projectContent.liveLink}" target="_blank">
+                    <i class="ph ph-arrow-up-right"></i>
                 </a>
-                <a href="">
+
+                <a href="${projectContent.githubLink}" target="_blank">
                     <i class="ph ph-github-logo"></i>
                 </a>
             </div>
-        </div> 
+        </div>
 
-            <div class="carousel">
-                <img src="${projectContent?.image}" alt="${projectContent?.title}">
-                
+        <div class="carousel">
+            <img src="${projectContent.image}" alt="${projectContent.title}">
 
-                <div class="arrows">
-                    <a href="#" id="previous" class=${previousDisabled?"disabled-btn": ""}>
-                        <i class="ph ph-caret-left"></i>
-                    </a>
-                    <a href="#" id="next class=${nextDisabled?"disabled-btn": ""}>
-                        <i class="ph ph-caret-right"></i>
-                    </a>
-                </div>
-                </div>
+            <div class="arrows">
+                <a href="#" id="previous" class="${previousDisabled ? "disabled-btn" : ""}">
+                    <i class="ph ph-caret-left"></i>
+                </a>
+
+                <a href="#" id="next" class="${nextDisabled ? "disabled-btn" : ""}">
+                    <i class="ph ph-caret-right"></i>
+                </a>
             </div>
+        </div>
     `;
 
-    document.getElementById("previous").addEventListener("click", (e) =>  {
+    const previousBtn = document.getElementById("previous");
+    const nextBtn = document.getElementById("next");
+
+    previousBtn.addEventListener("click", (e) => {
         e.preventDefault();
 
-        if(currentIndex < projectList.length -1){
+        if (currentIndex > 0) {
+            currentIndex--;
+            renderProject(currentIndex);
+        }
+    });
+
+    nextBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        if (currentIndex < projectList.length - 1) {
             currentIndex++;
-            renderproject(currentIndex);
+            renderProject(currentIndex);
         }
     });
 };
 
-renderproject(currentIndex);            
-            
-            
-            
-            // <div class="projects">
-            //     <div class="project-info">
-            //         <h3>01</h3>
-            //         <h4>FullStack Threads Clone</h4>
-            //         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, qui ipsam! Illum doloremque eaque eos numquam iusto facere! Necessitatibus, odit.</p>
-            //         <div class="tech-stack">
-            //             <span>mongoDB</span>
-            //             <span>mongoDB</span>
-  
-            //         </div>
-            //         <hr>
-            //         <div class="links">
-            //             <a href="">
-            //                 <i class="ph ph-arrow-right"></i>
-            //             </a>
-            //             <a href="">
-            //                 <i class="ph ph-github-logo"></i>
-            //             </a>
-            //         </div>
-            //     </div>
+renderProject(currentIndex);

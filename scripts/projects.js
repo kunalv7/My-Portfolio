@@ -2,62 +2,68 @@ const projectList = [
     {
         id: 1,
         number: "01",
+        title: "Photography-Safe-Vault",
+        discription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, qui ipsam! Illum doloremque eaque eos numquam iusto facere! Necessitatibus, odit.",
+        techStack: ["MongoDB", "Express", "React", "Node"],
+        image: "assets/projects/project1.webp",
+        liveLink: "#",
+        githubLink: "https://github.com/kunalv7/Photography-Safe-Vault",
+    },
+    {
+        id: 2,
+        number: "02",
         title: "FullStack Threads Clone",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, qui ipsam! Illum doloremque eaque eos numquam iusto facere! Necessitatibus, odit.",
+        discription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, qui ipsam! Illum doloremque eaque eos numquam iusto facere! Necessitatibus, odit.",
         techStack: ["MongoDB", "Express", "React", "Node"],
         image: "assets/projects/project1.webp",
         liveLink: "#",
         githubLink: "#",
     },
-    {
-        id: 2,
-        number: "02",
-        title: "E-Commerce Website",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, qui ipsam! Illum doloremque eaque eos numquam iusto facere! Necessitatibus, odit.",
-        techStack: ["MongoDB", "Express", "React", "Node"],
-        image: "assets/projects/project1.webp",
-        liveLink: "#",
-        githubLink: "#",
-    }
-];
+]
 
 const projects = document.querySelector(".projects");
 
 let currentIndex = 0;
 
-const renderProject = (index) => {
+const renderproject = (index) => {
     const projectContent = projectList[index];
 
     const previousDisabled = currentIndex === 0;
     const nextDisabled = currentIndex === projectList.length - 1;
 
-    projects.innerHTML = `
+    projects.innerHTML =
+    `
+    <div class="projects">
         <div class="project-info">
-            <h3>${projectContent.number}</h3>
-            <h4>${projectContent.title}</h4>
-            <p>${projectContent.description}</p>
+            <h3>${projectContent?.number}</h3>
+            <h4>${projectContent?.title}</h4>
+            <p>${projectContent?.discription}</p>
 
             <div class="tech-stack">
-                ${projectContent.techStack
-                    .map((tech) => `<span>${tech}</span>`)
-                    .join("")}
+                ${
+                    projectContent?.techStack?.map((tech, i) => {
+                        return `
+                            <span>${tech}</span>
+                        `;
+                    }).join(",")
+                }
             </div>
 
             <hr>
 
             <div class="links">
-                <a href="${projectContent.liveLink}" target="_blank">
-                    <i class="ph ph-arrow-up-right"></i>
+                <a href="${projectContent?.liveLink}">
+                    <i class="ph ph-arrow-right"></i>
                 </a>
 
-                <a href="${projectContent.githubLink}" target="_blank">
+                <a href="${projectContent?.githubLink}">
                     <i class="ph ph-github-logo"></i>
                 </a>
             </div>
         </div>
 
         <div class="carousel">
-            <img src="${projectContent.image}" alt="${projectContent.title}">
+            <img src="${projectContent?.image}" alt="${projectContent?.title}">
 
             <div class="arrows">
                 <a href="#" id="previous" class="${previousDisabled ? "disabled-btn" : ""}">
@@ -69,28 +75,26 @@ const renderProject = (index) => {
                 </a>
             </div>
         </div>
+    </div>
     `;
 
-    const previousBtn = document.getElementById("previous");
-    const nextBtn = document.getElementById("next");
-
-    previousBtn.addEventListener("click", (e) => {
+    document.getElementById("previous").addEventListener("click", (e) => {
         e.preventDefault();
 
         if (currentIndex > 0) {
             currentIndex--;
-            renderProject(currentIndex);
+            renderproject(currentIndex);
         }
     });
 
-    nextBtn.addEventListener("click", (e) => {
+    document.getElementById("next").addEventListener("click", (e) => {
         e.preventDefault();
 
         if (currentIndex < projectList.length - 1) {
             currentIndex++;
-            renderProject(currentIndex);
+            renderproject(currentIndex);
         }
     });
 };
 
-renderProject(currentIndex);
+renderproject(currentIndex);

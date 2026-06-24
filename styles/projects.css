@@ -106,8 +106,8 @@
 }
 
 .disabled-btn{
-    color: var(--disabled);
-    border-color: var(--disabled);
+    color: var(--disabled) !important ;
+    border-color: var(--disabled) !important;
     pointer-events: none;
     opacity: 0.5;
 }

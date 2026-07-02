@@ -40,3 +40,99 @@ const contactContent = contactList.map((ele) =>{
 }).join("");
 
 if (media) media.innerHTML = contactContent;
+
+// Send contact message
+const sendBtn = document.querySelector("#send-msg");
+
+const originalText = sendBtn.innerHTML;
+
+const originalStyle = {
+    backgroundColor: sendBtn.style.backgroundColor,
+    color: sendBtn.style.color,
+    border: sendBtn.style.border,
+    boxShadow: sendBtn.style.boxShadow,
+};
+
+document.getElementById("contact-form").addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    sendBtn.innerHTML = "Sending...";
+    sendBtn.style.backgroundColor = "gray";
+    sendBtn.style.color = "white";
+    sendBtn.style.border = "none";
+    sendBtn.style.boxShadow = "none";
+
+    sendBtn.disabled = false
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const message = document.getElementById("message").value;
+
+    if (!name || !email || !phone || !message){
+        sendBtn.innerHTML = originalText;
+
+        Object.assign(sendBtn.style, originalStyle);
+        
+        return Toastify({
+            text: "All fields are mandatory !",
+            duration: 3000,
+            gravity: "top", 
+            position: "center",
+            close: true,
+            stopOnFocus: true, 
+            style: {
+            background: "rgb(206,16,16)",
+        },
+        }).showToast();
+    }
+
+    emailjs.send("service_x83vgkf", "template_yczrjqm",
+    {
+        name,
+        email,
+        phone,
+        message,
+    })
+    .then(() => {
+        Toastify({
+            text: "Message Sent !",
+            duration: 3000,
+            gravity: "top", 
+            position: "center",
+            close: true,
+            stopOnFocus: true, 
+            style: {
+            background: "rgb(9,222,38)",
+        },
+        }).showToast();
+
+        setTimeout(()=>{
+            sendBtn.innerHTML = originalText;
+            Object.assign(sendBtn.style, originalStyle);
+            sendBtn.disabled = false;
+        },2000)
+
+        }, 
+        (error) => {
+            Toastify({
+            text: "Message Failed !",
+            duration: 3000,
+            gravity: "top", 
+            position: "center",
+            close: true,
+            stopOnFocus: true, 
+            style: {
+            background: "rgb(206,16,16)",
+            },
+            }).showToast();
+
+            setTimeout(()=>{
+                sendBtn.innerHTML = originalText;
+                Object.assign(sendBtn.style, originalStyle);
+                sendBtn.disabled = false;
+            },2000) 
+
+            console.log('FAILED...', error);
+        });
+});
